@@ -199,13 +199,6 @@ npm run dev
 <p>  <strong> /server/index.js </strong> 当中间件引入<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import reptileApi from &apos;./app&apos;</span><br><span class="line">app.use(&apos;/&apos;, reptileApi)</span><br></pre></td></tr></table></figure></p>
 <h2 id="引入mint-ui环境"><a href="#引入mint-ui环境" class="headerlink" title="引入mint-ui环境"></a>引入mint-ui环境</h2><p>  装插件的方式和官网上的有点出入，还有不推荐mint-ui，用asyncData渲染的时候会报模板错误。看源码有a标签嵌套div标签的写法，不规范。<br>  要先安装上 “babel-plugin-component”<br>  <strong> /plugins/ </strong> 文件夹创建 mint-ui.js<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import MintUI from &apos;mint-ui&apos;</span><br><span class="line">Vue.use(MintUI)</span><br></pre></td></tr></table></figure></p>
 <p>  <strong> ./nuxt.config.js </strong> 相关文件的设置<br>  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">css: [&apos;~/assets/css/main.css&apos;, &apos;mint-ui/lib/style.css&apos;]</span><br><span class="line">build: &#123;</span><br><span class="line">  vendor: [&apos;axios&apos;, &apos;mint-ui&apos;]</span><br><span class="line">  babel: &#123;</span><br><span class="line">    &quot;plugins&quot;: [[&quot;component&quot;, [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;libraryName&quot;: &quot;mint-ui&quot;,</span><br><span class="line">        &quot;style&quot;: true</span><br><span class="line">      &#125;</span><br><span class="line">    ]]],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br><span class="line">plugins: [</span><br><span class="line">  /* ssr 改为 false 的时候会报错 */</span><br><span class="line">  &#123; &quot;src&quot;: &apos;~plugins/mint-ui&apos;, ssr: true &#125;</span><br><span class="line">],</span><br><span class="line">···</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>文件树结构<ul>
-<li>js</li>
-<li>html</li>
-</ul>
-</li>
-</ul>
 
                 <hr>
                 
